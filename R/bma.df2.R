@@ -18,8 +18,20 @@
 #' bma.df2(Sample=Sample,Cov=Cov,cc=0.5,co=0.5,phi=1,psi=1000,formula=formula)
 #' @export
 bma.df2 <- function(Sample=NULL,Cov=NULL,cc=0.5,co=0.5,phi=1,psi=1000,formula=NULL){
-  Y<-Sample$Y;E<-Sample$E;G<-Sample$G
-  names(Cov) <- paste0("C",seq(1,ncol(Cov)))
-  pval <- run.BMA.2DF(Y=Y,E=E,G=G,Cov=Cov,cc=cc,co=co,phi=phi,psi=psi,formula=formula)
-  return(pval)
+  if(cc+co!=1){
+    print("error: cc and co values must add up to 1")
+  } else {
+    if(nrow(Sample)!=nrow(Cov)){
+      print("error: Sample and Cov must have same number of rows")
+    } else {
+      if(colnames(Sample)[1]!="Y" | colnames(Sample)[2]!= "E" | colnames(Sample)[3] != "G"){
+        print("error: names do not match 'Y,E,G'")
+      } else {
+         Y<-Sample$Y;E<-Sample$E;G<-Sample$G
+         names(Cov) <- paste0("C",seq(1,ncol(Cov)))
+         pval <- run.BMA.2DF(Y=Y,E=E,G=G,Cov=Cov,cc=cc,co=co,phi=phi,psi=psi,formula=formula)
+         return(pval)
+      }
+    }
+  }
 }
