@@ -8,13 +8,13 @@
 #' @param co input A number. Defaults to 0.5.
 #' @param phi input A number. Defaults to 1.
 #' @param psi input A number. Defaults to 1000.
-#' @param formula input A string in the form: "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+... . Defaults to NULL.
+#' @param formul input A string in the form: "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+... . Defaults to NULL.
 #' @return Vector containing BMA interaction effect estimate, standard error, Z-score, and p-value.
 #' @import BMA
 #' @export
 
 # library(BMA)
-run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=1000,formula=NULL) {
+run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=1000,formul=NULL) {
   if(length(Cov)>0){
     cterms <- ncol(Cov)
     covnam <- paste0("C",seq(1,ncol(Cov)))
@@ -31,7 +31,7 @@ run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=
       pmw <- pmw/sum(pmw)
       alt.models<- c(1:2)
 
-      if(is.null(formula)){
+      if(is.null(formul)){
         models <- rbind(c(1,1,1,1,1,1,1,rep(1,nterms)), c(1,1,1,0,1,1,1,rep(1,nterms)))
         covariate.terms <- c(paste0("C", 1:cterms),paste0("Y:",covnam))
         base.terms <- c("E","G","E:G","Y","E:Y","G:Y","E:G:Y")
@@ -42,7 +42,7 @@ run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=
         extra.terms <- names(X[ , -which(names(X) %in% main.terms)])
         Xr <- X[,c(main.terms,extra.terms)]
       } else {
-        cov.model.terms <- formula
+        cov.model.terms <- formul
         X <- as.data.frame(model.matrix(as.formula(cov.model.terms),data=Dat))[,-1]
         main.terms <- c("E1","G1","Y1","E1:G1","E1:Y1","G1:Y1","E1:G1:Y1")
         extra.terms <- names(X[ , -which(names(X) %in% main.terms)])
@@ -60,7 +60,8 @@ run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=
       bma.result <- c(Int.est, Int.sd, Z.score, p.value)
       return(bma.result)
     } else {
-      return(c(NA,NA,NA,NA))
+      bma.result <- c(NA,NA,NA,NA)
+      return(bma.result)
     }
 
   } else {
@@ -73,7 +74,7 @@ run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=
       pmw <- c(cc,co)
       pmw <- pmw/sum(pmw)
       alt.models<- c(1:2)
-      if(is.null(formula)){
+      if(is.null(formul)){
         models <- rbind(c(1,1,1,1,1,1,1), c(1,1,1,0,1,1,1))
         base.terms <- c("E","G","E:G","Y","E:Y","G:Y","E:G:Y")
         model.terms <- c(base.terms)
@@ -83,7 +84,7 @@ run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=
         extra.terms <- names(X[ , -which(names(X) %in% main.terms)])
         Xr <- X[,c(main.terms,extra.terms)]
       } else {
-        cov.model.terms <- formula
+        cov.model.terms <- formul
         X <- as.data.frame(model.matrix(as.formula(cov.model.terms),data=Dat))[,-1]
         main.terms <- c("E1","G1","Y1","E1:G1","E1:Y1","G1:Y1","E1:G1:Y1")
         extra.terms <- names(X[ , -which(names(X) %in% main.terms)])
