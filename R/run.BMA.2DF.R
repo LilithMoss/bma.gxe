@@ -66,7 +66,8 @@ run.BMA.2DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=
       pval <- pchisq(W,2,lower.tail=F)
       return(pval)
     } else {
-      return(NA)
+      pval <- NA
+      return(pval)
     }
 
   } else {
@@ -115,7 +116,8 @@ run.BMA.2DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=
       pval <- pchisq(W,2,lower.tail=F)
       return(pval)
     } else{
-      return(NA)
+      pval <- NA
+      return(pval)
     }
   }
 }

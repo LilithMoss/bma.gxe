@@ -102,7 +102,10 @@ run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=
       bma.result <- c(Int.est, Int.sd, Z.score, p.value)
       return(bma.result)
     } else {
-      return(c(NA,NA,NA,NA))
+      bma.result <- c(NA,NA,NA,NA)
+      return(bma.result)
     }
   }
 }
+
+
