@@ -17,4 +17,3 @@ The P-value.
 \description{
 The P-value from a Wald Test
 }
-

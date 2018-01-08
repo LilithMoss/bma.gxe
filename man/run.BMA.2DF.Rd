@@ -5,7 +5,7 @@
 \title{BMA function for 2-degree-of-freedom Test}
 \usage{
 run.BMA.2DF(Y = NULL, E = NULL, G = NULL, Cov = NULL, cc = 0.05,
-  co = 0.05, phi = 1, psi = 1000, formula = NULL)
+  co = 0.05, phi = 1, psi = 1000, formul = NULL)
 }
 \arguments{
 \item{Y}{input A vector of binary outcomes/phenotypes. Defaults to NULL.}
@@ -24,7 +24,7 @@ run.BMA.2DF(Y = NULL, E = NULL, G = NULL, Cov = NULL, cc = 0.05,
 
 \item{psi}{input A number. Defaults to 1000.}
 
-\item{formula}{input A string in the form: "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+... . Defaults to NULL.}
+\item{formul}{input A string in the form: "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+... . Defaults to NULL.}
 }
 \value{
 The p-value for a BMA joint test of marginal and interaction effect.
@@ -32,4 +32,3 @@ The p-value for a BMA joint test of marginal and interaction effect.
 \description{
 BMA function for 2-degree-of-freedom Test
 }
-

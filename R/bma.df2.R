@@ -9,13 +9,13 @@
 #' @param formul input A string in the form: "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+... . Defaults to NULL.
 #' @return A number containing the p-value for a BMA joint test of marginal and interaction effect.
 #' @examples
-#' data("Cov")
+#' data("Covariates")
 #' data("Sample")
 #' formul <- "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+C1+C2+C3+Y:C1+Y:C2+Y:C3+E:C2"
-#' bma.df1(Sample=Sample,Cov=Cov,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL)
-#' bma.df2(Sample=Sample,Cov=Cov,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL)
-#' bma.df1(Sample=Sample,Cov=Cov,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
-#' bma.df2(Sample=Sample,Cov=Cov,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
+#' bma.df1(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL)
+#' bma.df2(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL)
+#' bma.df1(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
+#' bma.df2(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
 #' @export
 
 bma.df2 <- function(Sample=NULL,Cov=NULL,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL){

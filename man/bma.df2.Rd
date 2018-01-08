@@ -5,7 +5,7 @@
 \title{Re-name data and call BMA function for 2-degree-of-freedom Test}
 \usage{
 bma.df2(Sample = NULL, Cov = NULL, cc = 0.5, co = 0.5, phi = 1,
-  psi = 1000, formula = NULL)
+  psi = 1000, formul = NULL)
 }
 \arguments{
 \item{Sample}{input A data frame or matrix with columns in the order: "Y" "E" "G". Defaults to NULL.}
@@ -20,7 +20,7 @@ bma.df2(Sample = NULL, Cov = NULL, cc = 0.5, co = 0.5, phi = 1,
 
 \item{psi}{input A number. Defaults to 1000.}
 
-\item{formula}{input A string in the form: "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+... . Defaults to NULL.}
+\item{formul}{input A string in the form: "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+... . Defaults to NULL.}
 }
 \value{
 A number containing the p-value for a BMA joint test of marginal and interaction effect.
@@ -29,12 +29,11 @@ A number containing the p-value for a BMA joint test of marginal and interaction
 Re-name data and call BMA function for 2-degree-of-freedom Test
 }
 \examples{
-data("Cov")
+data("Covariates")
 data("Sample")
-formula <- "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+C1+C2+C3+Y:C1+Y:C2+Y:C3+E:C2"
-bma.df1(Sample=Sample,Cov=Cov,cc=0.5,co=0.5,phi=1,psi=1000,formula=NULL)
-bma.df2(Sample=Sample,Cov=Cov,cc=0.5,co=0.5,phi=1,psi=1000,formula=NULL)
-bma.df1(Sample=Sample,Cov=Cov,cc=0.5,co=0.5,phi=1,psi=1000,formula=formula)
-bma.df2(Sample=Sample,Cov=Cov,cc=0.5,co=0.5,phi=1,psi=1000,formula=formula)
+formul <- "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+C1+C2+C3+Y:C1+Y:C2+Y:C3+E:C2"
+bma.df1(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL)
+bma.df2(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL)
+bma.df1(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
+bma.df2(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
 }
-

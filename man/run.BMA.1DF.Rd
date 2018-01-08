@@ -5,7 +5,7 @@
 \title{BMA function for 1-degree-of-freedom Test}
 \usage{
 run.BMA.1DF(Y = NULL, E = NULL, G = NULL, Cov = NULL, cc = 0.05,
-  co = 0.05, phi = 1, psi = 1000, formula = NULL)
+  co = 0.05, phi = 1, psi = 1000, formul = NULL)
 }
 \arguments{
 \item{Y}{input A vector of binary outcomes/phenotypes. Defaults to NULL.}
@@ -24,7 +24,7 @@ run.BMA.1DF(Y = NULL, E = NULL, G = NULL, Cov = NULL, cc = 0.05,
 
 \item{psi}{input A number. Defaults to 1000.}
 
-\item{formula}{input A string in the form: "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+... . Defaults to NULL.}
+\item{formul}{input A string in the form: "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+... . Defaults to NULL.}
 }
 \value{
 Vector containing BMA interaction effect estimate, standard error, Z-score, and p-value.
@@ -32,4 +32,3 @@ Vector containing BMA interaction effect estimate, standard error, Z-score, and 
 \description{
 BMA function for 1-degree-of-freedom Test
 }
-

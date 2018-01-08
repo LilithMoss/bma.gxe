@@ -18,4 +18,3 @@ Sample
 A dataset containing Y,E, and G on 1000 individuals
 }
 \keyword{datasets}
-

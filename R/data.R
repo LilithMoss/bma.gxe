@@ -23,4 +23,5 @@
 #'   \item{Covariate 3}{Covariate, binary}
 #'   ...
 #' }
-"Cov"
+"Covariates"
+#' @export
