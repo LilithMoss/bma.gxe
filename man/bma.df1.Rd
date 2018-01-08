@@ -4,13 +4,13 @@
 \alias{bma.df1}
 \title{Re-name data and call BMA function for 1-degree-of-freedom Test}
 \usage{
-bma.df1(Sample = NULL, Cov = NULL, cc = 0.5, co = 0.5, phi = 1,
+bma.df1(Sample = NULL, Covar = NULL, cc = 0.5, co = 0.5, phi = 1,
   psi = 1000, formul = NULL)
 }
 \arguments{
 \item{Sample}{input A data frame or matrix with columns in the order: "Y" "E" "G". Defaults to NULL.}
 
-\item{Cov}{input A data frame of all covariate variables. Defaults to NULL.}
+\item{Covar}{input A data frame of all covariate variables. Defaults to NULL.}
 
 \item{cc}{input A number. Defaults to 0.5.}
 
@@ -32,8 +32,8 @@ Re-name data and call BMA function for 1-degree-of-freedom Test
 data("Covariates")
 data("Sample")
 formul <- "Count~E+G+E:G+Y+E:Y+G:Y+E:G:Y+C1+C2+C3+Y:C1+Y:C2+Y:C3+E:C2"
-bma.df1(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL)
-bma.df2(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL)
-bma.df1(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
-bma.df2(Sample=Sample,Cov=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
+bma.df1(Sample=Sample,Covar=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL)
+bma.df2(Sample=Sample,Covar=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL)
+bma.df1(Sample=Sample,Covar=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
+bma.df2(Sample=Sample,Covar=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
 }

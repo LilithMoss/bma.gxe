@@ -3,7 +3,7 @@
 #' @param Y input A vector of binary outcomes/phenotypes. Defaults to NULL.
 #' @param E input A vector of binary exposure status. Defaults to NULL.
 #' @param G input A vector of binary genotype. Defaults to NULL.
-#' @param Cov of all covariate variables. Defaults to NULL.
+#' @param Covar of all covariate variables. Defaults to NULL.
 #' @param cc input A number. Defaults to 0.5.
 #' @param co input A number. Defaults to 0.5.
 #' @param phi input A number. Defaults to 1.
@@ -14,13 +14,14 @@
 #' @export
 
 # library(BMA)
-run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=1000,formul=NULL) {
-  if(length(Cov)>0){
-    cterms <- ncol(Cov)
-    covnam <- paste0("C",seq(1,ncol(Cov)))
-    names(Cov) <- covnam
+run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Covar=NULL,cc=0.05,co=0.05,phi=1,psi=1000,formul=NULL) {
+  # if(length(Covar)>0){
+  if(exists("Covar")){
+    cterms <- ncol(Covar)
+    covnam <- paste0("C",seq(1,ncol(Covar)))
+    names(Covar) <- covnam
     nterms <- 2*cterms
-    Sample.complete <- cbind(Y,G,E,Cov)
+    Sample.complete <- cbind(Y,G,E,Covar)
     Sample.complete[Sample.complete != 0 & Sample.complete != 1] <- NA
     Sample.complete <- Sample.complete[complete.cases(Sample.complete), ]
 
@@ -64,7 +65,7 @@ run.BMA.1DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=
       return(bma.result)
     }
 
-  } else if(length(Cov)==0) {
+  } else {
     if(length(unique(Sample.complete[,1]))>1 & length(unique(Sample.complete[,2]))>1 & length(unique(Sample.complete[,3]))>1){
       Sample.complete <- as.data.frame(cbind(Y,G,E))
       Sample.complete[Sample.complete != 0 & Sample.complete != 1] <- NA
