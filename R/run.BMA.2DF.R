@@ -70,7 +70,7 @@ run.BMA.2DF <- function(Y=NULL,E=NULL,G=NULL,Cov=NULL,cc=0.05,co=0.05,phi=1,psi=
       return(pval)
     }
 
-  } else {
+  } else if(length(Cov)==0){
     if(length(unique(Sample.complete[,1]))>1 & length(unique(Sample.complete[,2]))>1 & length(unique(Sample.complete[,3]))>1){
       Sample.complete <- as.data.frame(cbind(Y,G,E))
       Sample.complete[Sample.complete != 0 & Sample.complete != 1] <- NA
