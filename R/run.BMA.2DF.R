@@ -14,7 +14,8 @@
 
 # library(BMA)
 run.BMA.2DF <- function(Y=NULL,E=NULL,G=NULL,Covar=NULL,cc=0.05,co=0.05,phi=1,psi=1000,formul=NULL) {
-  if(length(Covar)>0){
+  # if(length(Covar)>0){
+  if(!missing(Covar) & length(Covar)>0){
     cterms <- ncol(Covar)
     covnam <- paste0("C",seq(1,ncol(Covar)))
     names(Covar) <- covnam

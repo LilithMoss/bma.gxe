@@ -18,11 +18,13 @@
 #' bma.df2(Sample=Sample,Covar=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
 #' @export
 
-bma.df1 <- function(Sample=NULL,Covar=NULL,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL){
+bma.df1 <- function(Sample=NULL,Covar-NULL,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL){
   if(cc+co!=1){
     print("error: cc and co values must add up to 1")
   } else {
-    if(exists("Covar")){
+    # if(exists("Covar")){
+    # if(!missing(Covar)){
+    if(!missing(Covar) & length(Covar)>0){
       if(nrow(Sample)!=nrow(Covar)){
         print("error: Sample and Covar must have same number of rows")
       } else {
@@ -42,7 +44,8 @@ bma.df1 <- function(Sample=NULL,Covar=NULL,cc=0.5,co=0.5,phi=1,psi=1000,formul=N
           print("error: names do not match 'Y,E,G'")
         } else {
           Y<-Sample$Y;E<-Sample$E;G<-Sample$G
-          stats <- t(as.matrix(run.BMA.1DF(Y=Y,E=E,G=G,Covar=NULL,cc=cc,co=co,phi=phi,psi=psi,formul=formul)))
+          # stats <- t(as.matrix(run.BMA.1DF(Y=Y,E=E,G=G,Covar=NULL,cc=cc,co=co,phi=phi,psi=psi,formul=formul)))
+          stats <- t(as.matrix(run.BMA.1DF(Y=Y,E=E,G=G,cc=cc,co=co,phi=phi,psi=psi,formul=formul)))
           colnames(stats) <- c("Int.est","Int.sd","Z.score","p.value")
           return(stats)
         }

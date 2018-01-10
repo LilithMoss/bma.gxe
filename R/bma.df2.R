@@ -22,7 +22,8 @@ bma.df2 <- function(Sample=NULL,Covar=NULL,cc=0.5,co=0.5,phi=1,psi=1000,formul=N
   if(cc+co!=1){
     print("error: cc and co values must add up to 1")
   } else {
-    if(length(Covar)>0){
+    # if(length(Covar)>0){
+    if(!missing(Covar) & length(Covar)>0){
       if(nrow(Sample)!=nrow(Covar)){
         print("error: Sample and Covar must have same number of rows")
       } else {
