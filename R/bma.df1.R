@@ -18,7 +18,7 @@
 #' bma.df2(Sample=Sample,Covar=Covariates,cc=0.5,co=0.5,phi=1,psi=1000,formul=formul)
 #' @export
 
-bma.df1 <- function(Sample=NULL,Covar-NULL,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL){
+bma.df1 <- function(Sample=NULL,Covar=NULL,cc=0.5,co=0.5,phi=1,psi=1000,formul=NULL){
   if(cc+co!=1){
     print("error: cc and co values must add up to 1")
   } else {

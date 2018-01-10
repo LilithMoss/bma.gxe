@@ -4,8 +4,8 @@
 \alias{run.BMA.1DF}
 \title{BMA function for 1-degree-of-freedom Test}
 \usage{
-run.BMA.1DF(Y = NULL, E = NULL, G = NULL, Covar = NULL, cc = 0.05,
-  co = 0.05, phi = 1, psi = 1000, formul = NULL)
+run.BMA.1DF(Y, E, G, Covar = NULL, cc = 0.05, co = 0.05, phi = 1,
+  psi = 1000, formul = NULL)
 }
 \arguments{
 \item{Y}{input A vector of binary outcomes/phenotypes. Defaults to NULL.}

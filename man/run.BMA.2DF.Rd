@@ -4,7 +4,7 @@
 \alias{run.BMA.2DF}
 \title{BMA function for 2-degree-of-freedom Test}
 \usage{
-run.BMA.2DF(Y = NULL, E = NULL, G = NULL, Cov = NULL, cc = 0.05,
+run.BMA.2DF(Y = NULL, E = NULL, G = NULL, Covar = NULL, cc = 0.05,
   co = 0.05, phi = 1, psi = 1000, formul = NULL)
 }
 \arguments{
@@ -14,7 +14,7 @@ run.BMA.2DF(Y = NULL, E = NULL, G = NULL, Cov = NULL, cc = 0.05,
 
 \item{G}{input A vector of binary genotype. Defaults to NULL.}
 
-\item{Cov}{of all covariate variables. Defaults to NULL.}
+\item{Covar}{of all covariate variables. Defaults to NULL.}
 
 \item{cc}{input A number. Defaults to 0.5.}
 
