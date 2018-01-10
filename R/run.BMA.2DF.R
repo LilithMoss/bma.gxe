@@ -12,7 +12,6 @@
 #' @return The p-value for a BMA joint test of marginal and interaction effect.
 #' @export
 
-# library(BMA)
 run.BMA.2DF <- function(Y=NULL,E=NULL,G=NULL,Covar=NULL,cc=0.05,co=0.05,phi=1,psi=1000,formul=NULL) {
   if(!missing(Covar) & length(Covar)>0){
     cterms <- ncol(Covar)

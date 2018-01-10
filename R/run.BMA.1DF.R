@@ -13,7 +13,6 @@
 #' @import BMA
 #' @export
 
-# library(BMA)
 run.BMA.1DF <- function(Y,E,G,Covar=NULL,cc=0.05,co=0.05,phi=1,psi=1000,formul=NULL) {
   if(!missing(Covar) & length(Covar)>0){
     cterms <- ncol(Covar)
@@ -69,11 +68,7 @@ run.BMA.1DF <- function(Y,E,G,Covar=NULL,cc=0.05,co=0.05,phi=1,psi=1000,formul=N
     Sample.complete <- as.data.frame(cbind(Y,G,E))
     Sample.complete[Sample.complete != 0 & Sample.complete != 1] <- NA
     Sample.complete <- Sample.complete[complete.cases(Sample.complete), ]
-
       if(length(unique(Sample.complete[,1]))>1 & length(unique(Sample.complete[,2]))>1 & length(unique(Sample.complete[,3]))>1){
-      # Sample.complete <- as.data.frame(cbind(Y,G,E))
-      # Sample.complete[Sample.complete != 0 & Sample.complete != 1] <- NA
-      # Sample.complete <- Sample.complete[complete.cases(Sample.complete), ]
       Dat <- as.data.frame(ftable(Sample.complete))
       colnames(Dat)[ncol(Dat)] <- "Count"
       pmw <- c(cc,co)
