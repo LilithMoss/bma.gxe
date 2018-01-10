@@ -15,11 +15,7 @@
 
 # library(BMA)
 run.BMA.1DF <- function(Y,E,G,Covar=NULL,cc=0.05,co=0.05,phi=1,psi=1000,formul=NULL) {
-  # if(length(Covar)>0){
-  # if(exists("Covar")){
-  # if(!missing(Covar)){
   if(!missing(Covar) & length(Covar)>0){
-    print("I exist")
     cterms <- ncol(Covar)
     covnam <- paste0("C",seq(1,ncol(Covar)))
     names(Covar) <- covnam
